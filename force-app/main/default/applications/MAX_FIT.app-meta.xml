@@ -17,6 +17,11 @@
     <tabs>standard-report</tabs>
     <tabs>Location__c</tabs>
     <tabs>Attendee__c</tabs>
+    <tabs>Event_Organizer__c</tabs>
+    <tabs>Event__c</tabs>
+    <tabs>Event_Attendee__c</tabs>
+    <tabs>Speaker__c</tabs>
+    <tabs>Event_Speaker__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>MAX_FIT_UtilityBar</utilityBar>
 </CustomApplication>
