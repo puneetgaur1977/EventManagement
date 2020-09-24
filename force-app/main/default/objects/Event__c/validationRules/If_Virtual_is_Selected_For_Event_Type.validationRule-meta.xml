@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_Virtual_is_Selected_For_Event_Type</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Event_Type__c,&apos;Virtual&apos;),
+ NOT ISBLANK( Location__c )
+)</errorConditionFormula>
+    <errorMessage>You can not select a location for the event type virtual.</errorMessage>
+</ValidationRule>

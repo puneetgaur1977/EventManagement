@@ -161,6 +161,6 @@
     </nameField>
     <pluralLabel>Locations</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Read</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

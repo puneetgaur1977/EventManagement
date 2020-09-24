@@ -9,4 +9,8 @@
         <value>Event Speakers</value>
     </caseValues>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Speaker can only be associated with the Event whose End Date is in future &amp; Event Live Checkbox is checked --></errorMessage>
+        <name>Speaker_Associated_With_Live_Event</name>
+    </validationRules>
 </CustomObjectTranslation>

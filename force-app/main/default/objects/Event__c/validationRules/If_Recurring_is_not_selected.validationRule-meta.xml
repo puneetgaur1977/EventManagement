@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_Recurring_is_not_selected</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+ Recurring__c = false,
+ NOT ISBLANK(TEXT( Frequency__c ))
+)</errorConditionFormula>
+    <errorMessage>You can not select the frequency if recurring is not selected.</errorMessage>
+</ValidationRule>

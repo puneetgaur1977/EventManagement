@@ -252,6 +252,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Error_Logs__c.Log_Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Error_Logs__c.Process_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Event_Organizer__c.Alternate_Email__c</field>
         <readable>false</readable>
@@ -475,6 +485,9 @@
         <layout>EmailMessage-Email Message Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Error_Logs__c-Error Logs Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -645,6 +658,15 @@
     <layoutAssignments>
         <layout>WorkPerformanceCycle-Performance Cycle Layout - Winter %2716</layout>
     </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Event_Organizer__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>DataManager</apexPage>
         <enabled>true</enabled>

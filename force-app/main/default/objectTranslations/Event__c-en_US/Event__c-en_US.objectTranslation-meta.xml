@@ -9,4 +9,24 @@
         <value>Events</value>
     </caseValues>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Event End Date/Time must be 1 day ahead from Event Start Date/Time --></errorMessage>
+        <name>Event_End_Date_Must_be_1_day_ahead</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Event location should be  provided for In-Person event --></errorMessage>
+        <name>Event_Type_In_Person_Select_Location</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must need to select the frequency if recurring is checked --></errorMessage>
+        <name>If_Recurring_is_checked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not select the frequency if recurring is not selected. --></errorMessage>
+        <name>If_Recurring_is_not_selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can not select a location for the event type virtual. --></errorMessage>
+        <name>If_Virtual_is_Selected_For_Event_Type</name>
+    </validationRules>
 </CustomObjectTranslation>
