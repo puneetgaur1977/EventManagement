@@ -270,10 +270,6 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>PaymentGatewayProvider</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>PermissionSet</name>
 	</types>
 	<types>

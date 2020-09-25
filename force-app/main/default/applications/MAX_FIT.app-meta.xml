@@ -22,6 +22,7 @@
     <tabs>Event_Attendee__c</tabs>
     <tabs>Speaker__c</tabs>
     <tabs>Event_Speaker__c</tabs>
+    <tabs>Error_Logs__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>MAX_FIT_UtilityBar</utilityBar>
 </CustomApplication>

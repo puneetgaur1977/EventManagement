@@ -12,7 +12,7 @@ public with sharing class TransactionLogHandler {
     public static void doHandlerException(System.Exception ex, String processName){
         Error_Logs__c transactionLog = new Error_Logs__c(
             Log_DateTime__c = System.Now(),
-            Log_Details__c = ex.getStackTraceString()+'<br/>'+ ex.getMessage()
+            Log_Details__c = ex.getStackTraceString()+'<br/><strong>Error Message</strong>'+ ex.getMessage()
             + '<br/>' + ex.getCause()+ ' <br/>'+ ex.getTypeName() + '<br/>'+
             ex.getLineNumber(),
             Process_Name__c = processName
