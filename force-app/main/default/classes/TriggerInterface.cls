@@ -22,7 +22,7 @@ public Interface TriggerInterface {
     @CreatedDate: 09-24-2020
     @Param : List<sObject> newRecordList
     */
-    void afterInsert(List<sObject> newRecordList);
+    void afterInsert(List<sObject> newRecordList,Map<Id,sObject> newRecordMap);
     /*
     @Author : Puneet Gaur
     @Description: Calling by Trigger Handler Framework
