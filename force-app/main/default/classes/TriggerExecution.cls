@@ -11,10 +11,15 @@
 public with sharing class TriggerExecution {
     public
     static void run(TriggerInterface handler, String objectName){
-        execute(handler,getTriggerSetting(objectName));
+        Trigger_Setting__c triggerSettingRecord = getTriggerSetting(objectName);
+        //if(triggerSettingRecord == null){
+        //    triggerSettingRecord = getTriggerBlankSetting(objectName);
+        //}
+        execute(handler,triggerSettingRecord);
     }
     private
     static void execute(TriggerInterface handler,Trigger_Setting__c triggerSettingRecord){
+        
         if(triggerSettingRecord !=null && triggerSettingRecord.Disabled__c){
             return;
         }
@@ -47,6 +52,7 @@ public with sharing class TriggerExecution {
     }
     private
     static Trigger_Setting__c getTriggerSetting(String objectName){
+        try{
         return[
             SELECT
                 After_Delete__c,
@@ -63,5 +69,16 @@ public with sharing class TriggerExecution {
             WHERE
                 Object_Name__c = :objectName
         ];
+        }catch(Exception ex){
+            return getTriggerBlankSetting(objectName);
+        }
+        //return null;
     }
+    private
+    static Trigger_Setting__c getTriggerBlankSetting(String objectName){
+        Trigger_Setting__c triggerSettingBlankRecordBuild = new Trigger_Setting__c();
+        triggerSettingBlankRecordBuild.Object_Name__c = objectName;
+        return triggerSettingBlankRecordBuild;
+    }
+
 }
