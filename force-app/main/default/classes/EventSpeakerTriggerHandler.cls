@@ -2,13 +2,13 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 09-25-2020
+ * @last modified on  : 10-11-2020
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
  * 1.0   09-24-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
-public class EventSpeakerTriggerHandler {
+public class EventSpeakerTriggerHandler implements TriggerInterface{
         /*
     @Author : Puneet Gaur
     @Description: Calling by Trigger Handler Framework
@@ -43,7 +43,7 @@ public class EventSpeakerTriggerHandler {
     @Param : Map<Id,sObject> oldRecordMap,Map<Id,sObject> newRecordMap
     */
     public void beforeUpdate(Map<Id,sObject> oldRecordMap,Map<Id,sObject> newRecordMap){
-        //EventSpeakerTriggerHelper.rejectDuplicateEventBookings(newRecordList);
+        EventSpeakerTriggerHelper.rejectDuplicateEventBookings(newRecordMap.values());
     }
     /*
     @Author : Puneet Gaur
