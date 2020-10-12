@@ -18,7 +18,9 @@ public with sharing class EventAttendeeHelper {
         Attendee__c attendeeRecord = new Attendee__c();
         Event__c eventRecord = new Event__c();
         String emailBody = System.Label.Email_Content;
+        String eventLocation;
         Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+        List<Messaging.SingleEmailMessage> messageList = new List<Messaging.SingleEmailMessage>();
 
         for(Event_Attendee__c newRecord : newRecordList){
             attendeesIdSet.add(newRecord.Attendee__c);
@@ -31,6 +33,12 @@ public with sharing class EventAttendeeHelper {
         for(Event_Attendee__c eventAttendeeRecord : newRecordList){
             attendeeRecord = attendeesMap.get(eventAttendeeRecord.Attendee__c);
             eventRecord = eventMap.get(eventAttendeeRecord.Event__c);
+            eventLocation ='https://google.com/maps/place/'+ eventRecord.Location__r.Street__c+' '+ 
+                            eventRecord.Location__r.City__c+' '+
+                            eventRecord.Location__r.State__c+' '+
+                            eventRecord.Location__r.Postal_Code__c+' '+
+                            eventRecord.Location__r.Country__c;
+            eventLocation = '<a href="'+eventLocation+'"'+'target="_blank">Here</a>';
             message.setToAddresses(new List<String>{attendeeRecord.Email__c});
             message.optOutPolicy = 'FILTER';
             message.setSubject('Pass for the '+eventRecord.Name);
@@ -40,8 +48,21 @@ public with sharing class EventAttendeeHelper {
             emailBody.replace('{EventDate}', String.valueOf(eventRecord.Start_Date_Time__c));
             emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
             emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
-            emailBody.replace('{Location}',eventRecord.Location__r.Postal_Code__c);
+            emailBody.replace('{Location}',eventLocation);
             emailBody.replace('{OrganizerName}',eventRecord.Event_Organizer__r.Name);
+            message.setHtmlBody(emailBody);
+            messageList.add(message);
+        }
+        try{
+            List<Messaging.SendEmailResult> emailResults =  Messaging.sendEmail(messageList,false);
+            for(Messaging.SendEmailResult emailResult : emailResults){
+                if(!emailResult.isSuccess()){
+                    List<Messaging.SendEmailError> errors = emailResult.getErrors();
+                    TransactionLogHandler.doHandlerException(JSON.serialize(errors),'EventAttendeeHelper');
+                }
+            }
+        }catch(Exception ex){
+            TransactionLogHandler.doHandlerException(ex,'Event Attendee Email Send');
         }
     }
     private

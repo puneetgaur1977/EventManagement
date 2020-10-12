@@ -8,7 +8,7 @@
  * Ver   Date         Author                               Modification
  * 1.0   10-11-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
-public with sharing class EventAttendeeTriggerHandler {
+public with sharing class EventAttendeeTriggerHandler implements TriggerInterface{
     /*
     @Author : Puneet Gaur
     @Description: Calling by Trigger Handler Framework
@@ -25,7 +25,7 @@ public with sharing class EventAttendeeTriggerHandler {
     @Param : List<sObject> newRecordList
     */
     public void afterInsert(List<sObject> newRecordList,Map<Id,sObject> newRecordMap){
-        EventSpeakerTriggerHelper.sendConfirmationEmail(newRecordList,newRecordMap);
+        EventAttendeeHelper.sendConfirmationEmail(newRecordList,(Map<Id,Event_Attendee__c>)newRecordMap);
     }
     /*
     @Author : Puneet Gaur
