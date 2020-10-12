@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EmailAdministrationSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+<EmailAdministrationSettings xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <enableComplianceBcc>false</enableComplianceBcc>
     <enableEmailConsentManagement>false</enableEmailConsentManagement>
     <enableEmailSenderIdCompliance>false</enableEmailSenderIdCompliance>
@@ -9,12 +9,13 @@
     <enableEnhancedEmailEnabled>true</enableEnhancedEmailEnabled>
     <enableHandleBouncedEmails>true</enableHandleBouncedEmails>
     <enableHtmlEmail>false</enableHtmlEmail>
+    <enableInternationalEmailAddresses>false</enableInternationalEmailAddresses>
     <enableListEmailLogActivities>true</enableListEmailLogActivities>
     <enableResendBouncedEmails>false</enableResendBouncedEmails>
     <enableRestrictTlsToDomains>false</enableRestrictTlsToDomains>
     <enableSendViaExchangePref>false</enableSendViaExchangePref>
     <enableSendViaGmailPref>false</enableSendViaGmailPref>
-    <enableSetMatchingEmailsOnBounce>false</enableSetMatchingEmailsOnBounce>
+    <enableSetMatchingEmailsOnBounce xsi:nil="true"/>
     <enableUseOrgFootersForExtTrans>false</enableUseOrgFootersForExtTrans>
     <sendEmailsEvenWhenAutomationUpdatesSameRecord>false</sendEmailsEvenWhenAutomationUpdatesSameRecord>
     <sendMassEmailNotification>true</sendMassEmailNotification>

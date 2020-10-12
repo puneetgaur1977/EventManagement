@@ -11,6 +11,7 @@
 public with sharing class EventAttendeeHelper {
     public
     static void sendConfirmationEmail(List<Event_Attendee__c> newRecordList,Map<Id,Event_Attendee__c> newRecordMap){
+        System.debug('Calling Helper');
         Set<Id> attendeesIdSet = new Set<Id>();
         Set<Id> eventIdSet = new Set<Id>();
         Map<Id,Attendee__c> attendeesMap = new Map<Id,Attendee__c>();
@@ -43,17 +44,18 @@ public with sharing class EventAttendeeHelper {
             message.optOutPolicy = 'FILTER';
             message.setSubject('Pass for the '+eventRecord.Name);
             message.setSenderDisplayName(eventRecord.Event_Organizer__r.Name);
-            emailBody.replace('{AttendeeName}',attendeeRecord.Name);
-            emailBody.replace('{EventName}',eventRecord.Name);
-            emailBody.replace('{EventDate}', String.valueOf(eventRecord.Start_Date_Time__c));
-            emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
-            emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
-            emailBody.replace('{Location}',eventLocation);
-            emailBody.replace('{OrganizerName}',eventRecord.Event_Organizer__r.Name);
+            emailBody = emailBody.replace('{AttendeeName}',attendeeRecord.Name);
+            emailBody = emailBody.replace('{EventName}',eventRecord.Name);
+            emailBody = emailBody.replace('{EventDate}', String.valueOf(eventRecord.Start_Date_Time__c));
+            emailBody = emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
+            emailBody = emailBody.replace('{EventLocation}',eventRecord.Location__r.Name);
+            emailBody = emailBody.replace('{Location}',eventLocation);
+            emailBody = emailBody.replace('{OrganizerName}',eventRecord.Event_Organizer__r.Name);
             message.setHtmlBody(emailBody);
             messageList.add(message);
         }
         try{
+            System.debug('messageList'+messageList);
             List<Messaging.SendEmailResult> emailResults =  Messaging.sendEmail(messageList,false);
             for(Messaging.SendEmailResult emailResult : emailResults){
                 if(!emailResult.isSuccess()){

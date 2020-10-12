@@ -11,10 +11,10 @@
     <enableFlowNullPreviousValueFix>false</enableFlowNullPreviousValueFix>
     <enableFlowPauseEnabled>false</enableFlowPauseEnabled>
     <enableFlowUseApexExceptionEmail>false</enableFlowUseApexExceptionEmail>
-    <enableInvocableFlowFixEnabled>true</enableInvocableFlowFixEnabled>
     <enableLightningRuntimeEnabled>true</enableLightningRuntimeEnabled>
     <isAccessToInvokedApexRequired>false</isAccessToInvokedApexRequired>
     <isApexPluginAccessModifierRespected>true</isApexPluginAccessModifierRespected>
     <isEnhancedFlowListViewVisible>true</isEnhancedFlowListViewVisible>
+    <isFlowApexContextRetired>false</isFlowApexContextRetired>
     <isManageFlowRequiredForAutomationCharts>false</isManageFlowRequiredForAutomationCharts>
 </FlowSettings>

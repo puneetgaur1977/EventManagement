@@ -108,6 +108,13 @@
     <notificationTypeSettings>
         <notificationChannels>
             <desktopEnabled>true</desktopEnabled>
+            <mobileEnabled>false</mobileEnabled>
+        </notificationChannels>
+        <notificationType>voice_call_share</notificationType>
+    </notificationTypeSettings>
+    <notificationTypeSettings>
+        <notificationChannels>
+            <desktopEnabled>true</desktopEnabled>
             <mobileEnabled>true</mobileEnabled>
         </notificationChannels>
         <notificationType>wave_condition</notificationType>

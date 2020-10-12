@@ -9,8 +9,4 @@
         <value>Event Attendees</value>
     </caseValues>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- Attendee can only be associated with the Event whose End Date is in future &amp; Event Live Checkbox is checked and Event is accepting the Attendees --></errorMessage>
-        <name>Event_Accepting_the_Attendees</name>
-    </validationRules>
 </CustomObjectTranslation>
