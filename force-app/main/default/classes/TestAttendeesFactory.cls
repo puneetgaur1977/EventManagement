@@ -1,13 +1,14 @@
 /**
  * @description       : 
- * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @author            : gaur.puneet@outlook.com
  * @group             : 
  * @last modified on  : 10-11-2020
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @last modified by  : gaur.puneet@outlook.com
  * Modifications Log 
- * Ver   Date         Author                               Modification
- * 1.0   10-11-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+ * Ver   Date         Author                    Modification
+ * 1.0   10-11-2020   gaur.puneet@outlook.com   Initial Version
 **/
+
 @isTest
 public class TestAttendeesFactory {
     private
