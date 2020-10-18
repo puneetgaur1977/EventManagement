@@ -11,5 +11,5 @@
 
 ContactUpdateBatch batch = new ContactUpdateBatch();
 Final Integer BATCH_SIZE = 2;
-Database.executeBatch(batch);
-Database.executeBatch(batch,BATCH_SIZE);
+Database.executeBatch(batch); // Batch Batch size - 200
+Database.executeBatch(batch,BATCH_SIZE); //Batch Size would be 2

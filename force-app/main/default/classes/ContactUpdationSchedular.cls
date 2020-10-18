@@ -11,9 +11,6 @@
 public with sharing class ContactUpdationSchedular implements Schedulable{
     public void execute(SchedulableContext scon)
     {
-        System.abortJob(scon.getTriggerId()); // abort already running schedule job 
-        Decimal nextInterval = System.Label.nextIntervalTime; // config to decide next interval 2,5 or 10 mins etc..
-        System.schedule('CaseCreationonBatch - '+String.valueOf(DateTime.now()), '0 '+DateTime.now().addMinutes(Integer.valueOf(nextInterval)).minute()+' */1 ? * *', this); //Schedule the class to run with specified time
-        Database.executeBatch(new ContactUpdateBatch()); // Call you batch class 
-       
+        
+    }
 }
