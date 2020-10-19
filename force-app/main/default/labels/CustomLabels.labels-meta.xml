@@ -14,4 +14,11 @@ Find the Google Map Location for the Event {Location}.
 Thanks,
 {OrganizerName}</value>
     </labels>
+    <labels>
+        <fullName>SmartyStreet</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Smarty Street Base URL Endpoint</shortDescription>
+        <value>https://smartystreets.com/products/apis/us-street-api?auth-id=f4eb5c5f-6f5b-69e6-aad3-3e18a70be9f7auth-token=XPrOQEAqH7xGxtzuHrtX</value>
+    </labels>
 </CustomLabels>

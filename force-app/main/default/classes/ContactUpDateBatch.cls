@@ -15,7 +15,7 @@ global class ContactUpDateBatch implements Database.Batchable<sObject>, Database
     global Integer fail_size = 0;
     global Integer success_size = 0;
     global Database.queryLocator start(Database.BatchableContext bc){
-        String contactQuery = 'select Id, Name, Fax, Email, MobilePhone, Description, Account.Name, Account.Rating, Account.Phone, Account.Fax, Account.Industry from Contact';
+        String contactQuery = 'select Id, Name, Fax, Email, MobilePhone, Description, Account.Name, Account.Rating, Account.Phone, Account.Fax, Account.Industry from Contact Where AccountId != null';
         AsyncApexJob[] apexJobs = [
             SELECT
                 Id,

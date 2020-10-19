@@ -9,7 +9,7 @@
 // System.debug('Hello World!');
 // System.debug('My name is ' + tempvar);
 
-ContactUpdateBatch batch = new ContactUpdateBatch();
+DeleteEventBatch batch = new DeleteEventBatch();
 Final Integer BATCH_SIZE = 2;
 Database.executeBatch(batch); // Batch Batch size - 200
 Database.executeBatch(batch,BATCH_SIZE); //Batch Size would be 2

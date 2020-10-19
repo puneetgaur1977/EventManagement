@@ -1,0 +1,55 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 10-18-2020
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   10-18-2020   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <div class="slds-m-padding_around">
+        <template if:false = {selectedRecord}>
+            <c-lwc-search-component
+                onsearch={handleSearch}
+                search-label={label}
+                isrequired="true"
+            ></c-lwc-search-component>
+        </template>
+    </div>
+    <div class="slds-m-padding_around">
+        <template if:true={selectedRecord}>
+            <template if:true={records}>
+                <template for:each={records} for:item="rec" for:index="index">
+                    <ul key={rec.Id} class="slds-listbox">
+                            <c-lwc-record-list 
+                                key={rec.Id}
+                                rec={rec}
+                                iconname={iconname}
+                                onselect={handleSelect}
+                            ></c-lwc-record-list>
+                    </ul>
+                </template>
+            </template>
+        </template>
+        <template if:true={selectedRecord}>
+            <label class="slds-form-element__label" for="unique-id-of-input">
+                {label}
+            </label>
+            <div class="slds-pill-container">
+                <lightning-pill class="pillSize"
+                href="JavaScript:void(0);"
+                label={selectedRecord.Name}
+                name={selectedRecord.Name}
+                onremove={handleRemove}
+                >
+            <lightning-icon icon-name={iconname}
+            variant="circle"
+            alternative-text={objectName}></lightning-icon>
+            </lightning-pill>
+            </div>
+
+        </template>
+    </div>
+</template>
