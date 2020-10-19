@@ -19,14 +19,17 @@ export default class Customlwclookup extends LightningElement {
 
     handleSearch(event){
         var searchVal = event.detail.value;
+        console.log(searchVal);
+        //alert(searchVal);
         searchRecords({
             objName : this.objectName,
             fieldName : this.fieldName,
-            searchKey : this.searchKey,
+            searchKey : searchVal,
             limitValue : this.limitValue
         })
-        .then(data =>{
+        .then(data => {
             if(data){
+                //alert(JSON.stringify(data));
                 let parsedResponse = JSON.parse(data);
                 let searchRecordList = parsedResponse[0];
                 for(let i=0; i< searchRecordList.length; i++){
@@ -35,6 +38,9 @@ export default class Customlwclookup extends LightningElement {
                 }
                 this.records = searchRecordList;
             }
+        })
+        .catch(error =>{
+            alert(error);
         });
     }
     handleSelect(event){

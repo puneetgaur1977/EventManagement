@@ -2,7 +2,7 @@
   @description       : 
   @author            : gaur.puneet@outlook.com
   @group             : 
-  @last modified on  : 10-18-2020
+  @last modified on  : 10-19-2020
   @last modified by  : gaur.puneet@outlook.com
   Modifications Log 
   Ver   Date         Author                    Modification
@@ -19,10 +19,10 @@
         </template>
     </div>
     <div class="slds-m-padding_around">
-        <template if:true={selectedRecord}>
+        <template if:false={selectedRecord}>
             <template if:true={records}>
                 <template for:each={records} for:item="rec" for:index="index">
-                    <ul key={rec.Id} class="slds-listbox">
+                    <ul key={rec.Id} class="slds-listbox ">
                             <c-lwc-record-list 
                                 key={rec.Id}
                                 rec={rec}

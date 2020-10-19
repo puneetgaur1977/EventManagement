@@ -5,7 +5,7 @@ export default class LwcRecordList extends LightningElement {
     rec;
     @api
     iconname = 'standard:account';
-    handleSelect(){
+    handleSelect(event){
         let selectEvent = new CustomEvent(
             'select',
             {
@@ -16,7 +16,7 @@ export default class LwcRecordList extends LightningElement {
         );
         this.dispatchEvent(selectEvent);
     }
-    handleRemove(){
+    handleRemove(event){
         let selectEvent = new CustomEvent(
             'select',
             {

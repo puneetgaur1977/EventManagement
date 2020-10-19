@@ -9,6 +9,7 @@ export default class LwcSearchComponent extends LightningElement {
     searchLabel = 'Search Account'
     renderedCallback(){
         if(!this.isrequired){
+            //alert('Hello');
             //showNotification('ERROR','Please Selec','error');
             return;
         }
@@ -18,7 +19,9 @@ export default class LwcSearchComponent extends LightningElement {
     }
     handleChange(event){
         var keyword = event.target.value;
+        //alert(keyword);
         if(keyword && keyword.length >= 2){
+            //alert(keyword.length);
             let searchEvent = new CustomEvent(
                 'search',
                 {
@@ -27,6 +30,7 @@ export default class LwcSearchComponent extends LightningElement {
                     }
                 }
             );
+            this.dispatchEvent(searchEvent);
         }
     }
 }
