@@ -1,0 +1,14 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 10-19-2020
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   10-19-2020   gaur.puneet@outlook.com   Initial Version
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:flow aura:id="3014W000001HEYiQAO" />
+</aura:component>
