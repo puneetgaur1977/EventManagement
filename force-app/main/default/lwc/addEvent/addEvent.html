@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 11-11-2020
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   11-11-2020   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Event Information" icon-name="standard:record">
+        <div class="slds-m-around_small">
+            <lightning-input type="text" variant="standard" name="name" label="Name" placeholder="type here..."></lightning-input>
+            <c-customlwclookup object-name="Event_Organizer__c" field-name="Name" 
+            label="Event Organizer" parentidfield="Event_Organizer__c"
+            iconname="standard:people"></c-customlwclookup>
+            <lightning-input type="datetime" variant="standard" name="name" label="Start Date" placeholder="type here..."></lightning-input>
+            <lightning-input type="datetime" variant="standard" name="name" label="End Date" placeholder="type here..."></lightning-input>
+            <lightning-input type="number" variant="standard" name="name" label="Max Attendees" placeholder="type here..."></lightning-input>
+            <c-customlwclookup object-name="Location__c" field-name="Event Location" 
+            label="Event Organizer" parentidfield="Location__c"
+            iconname="standard:people"></c-customlwclookup>
+            <lightning-input-rich-text type="text" variant="standard" name="name" label="Event Detail" placeholder="type here..."></lightning-input-rich-text>
+        </div>
+    </lightning-card>
+</template>

@@ -5,23 +5,27 @@ export default class LwcRecordList extends LightningElement {
     rec;
     @api
     iconname = 'standard:account';
-    handleSelect(event){
+    @api
+    parentidfield
+    handleSelect(){
         let selectEvent = new CustomEvent(
             'select',
             {
                 detail : {
-                    selRec : this.rec
+                    selRec : this.rec,
+                    parent: this.parentidfield
                 }
             }
         );
         this.dispatchEvent(selectEvent);
     }
-    handleRemove(event){
+    handleRemove(){
         let selectEvent = new CustomEvent(
             'select',
             {
                 detail : {
-                    selRec : undefined
+                    selRec : undefined,
+                    parent: this.parentidfield
                 }
             }
         );
