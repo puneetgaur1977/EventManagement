@@ -9,7 +9,7 @@ export default class LwcRecordList extends LightningElement {
     parentidfield
     handleSelect(){
         let selectEvent = new CustomEvent(
-            'select',
+            "select",
             {
                 detail : {
                     selRec : this.rec,
@@ -21,7 +21,7 @@ export default class LwcRecordList extends LightningElement {
     }
     handleRemove(){
         let selectEvent = new CustomEvent(
-            'select',
+            "select",
             {
                 detail : {
                     selRec : undefined,

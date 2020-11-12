@@ -40,17 +40,18 @@ export default class Customlwclookup extends LightningElement {
             }
         })
         .catch(error =>{
-            alert(error);
+            alert(JSON.stringify(error));
         });
     }
     handleSelect(event){
-        var selectedVal = event.detail.value;
+        var selectedVal = event.detail.selRec;
+        //alert(selectedVal);
         this.selectedRecord = selectedVal;
         let finalRecEvent = new CustomEvent(
-            'select',
+            "select",
             {
                 detail : {
-                    selectedRecordId : this.selectedRecordId,
+                    selectedRecordId : this.selectedRecord.Id,
                     parentidfield : this.parentidfield
                 }
             }
@@ -61,7 +62,7 @@ export default class Customlwclookup extends LightningElement {
         this.selectedRecord = undefined;
         this.records = undefined;
         let finalRecEvent = new CustomEvent(
-            'select',{
+            "select",{
                 detail : {
                     selectedRecordId : undefined,
                     parentidfield : this.parentidfield
