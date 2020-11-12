@@ -11,7 +11,7 @@
 <template>
     <lightning-card  variant="Narrow"  title="Event Information" icon-name="standard:record">
         <div class="slds-m-around_small">
-            <lightning-input type="text" variant="standard" name="name" label="Name" value={eventRecord.Name} placeholder="type here..." onchange={handleChange}></lightning-input>
+            <lightning-input type="text" variant="standard" name="Name__c" label="Name" value={eventRecord.Name} placeholder="type here..." onchange={handleChange}></lightning-input>
             <c-customlwclookup onselect={handleLookup} object-name="Event_Organizer__c" field-name="Name" 
             label="Event Organizer" parentidfield="Event_Organizer__c"
             iconname="standard:people"></c-customlwclookup>
