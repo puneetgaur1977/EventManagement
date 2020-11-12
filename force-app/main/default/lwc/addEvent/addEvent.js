@@ -28,7 +28,7 @@ export default class AddEvent extends LightningElement {
         let parentField = event.detail.parentfield;
         this.eventRecord[parentField] = selectedRecordId;
     }
-    handleClick(event){
+    handleClick(){
         alert('Hello');
         const fields = {};
         fields[Name.fieldApiName] = this.eventRecord.Name;
