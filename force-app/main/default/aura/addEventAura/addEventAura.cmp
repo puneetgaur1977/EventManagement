@@ -1,0 +1,13 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 11-12-2020
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   11-12-2020   gaur.puneet@outlook.com   Initial Version
+-->
+<aura:component implements="lightning:actionOverride">
+    <c:addEvent isModalOpen="true"></c:addEvent>
+</aura:component>	

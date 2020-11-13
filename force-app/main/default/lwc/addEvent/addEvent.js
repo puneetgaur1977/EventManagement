@@ -1,4 +1,4 @@
-import { LightningElement , track } from 'lwc';
+import { LightningElement , track , api} from 'lwc';
 import {createRecord} from 'lightning/uiRecordApi';
 import EVENT_OBJECT from '@salesforce/schema/Event__c';
 import Name_F from '@salesforce/schema/Event__c.Name__c';
@@ -15,6 +15,7 @@ const ERROR = 'error';
 const SUCCESS_MESSAGE_TYPE= 'Record has been saved successfully';
 const SUCCESS = 'success';
 export default class AddEvent extends NavigationMixin(LightningElement) {
+    @api isModalOpen;
     @track eventRecord = {
         Name__c : '',
         Event_Organizer__c : '',
@@ -48,6 +49,7 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
         const eventRecord = {apiName : EVENT_OBJECT.objectApiName , fields};
         createRecord(eventRecord)
         .then((eventRec) =>{
+            this.isModalOpen = false;
             showNotification('Event Success',SUCCESS_MESSAGE_TYPE,SUCCESS);
             this[NavigationMixin.Navigate]({
                 type: 'standard__recordPage',
@@ -56,6 +58,7 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
                     recordId: eventRec.id,
                 }
             });
+            
         }).catch((err) =>{
             this.errors = JSON.stringify(err.messa);
             showNotification(ERROR_CAR_TYPE_TYPE,this.errors,ERROR);
@@ -64,6 +67,7 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
 
     }
     handleCancel(){
+        this.isModalOpen = false;
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
@@ -71,6 +75,10 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
                 objectApiName: "Event__c"
             }
         });
+    }
+    closeModal() {
+        // to close modal set isModalOpen tarck value as false
+        this.isModalOpen = false;
     }
 
 }
