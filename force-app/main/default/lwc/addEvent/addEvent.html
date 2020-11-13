@@ -10,6 +10,12 @@
 -->
 <template>
     <lightning-card  variant="Narrow"  title="Event Information" icon-name="standard:record">
+        <div>
+            <template if:true={errors}>
+                {errors}
+            </template>
+
+        </div>
         <div class="slds-m-around_small">
             <lightning-input type="text" variant="standard" name="Name__c" label="Name" value={eventRecord.Name} placeholder="type here..." onchange={handleChange}></lightning-input>
             <c-customlwclookup onselect={handleLookup} object-name="Event_Organizer__c" field-name="Name" 
@@ -24,6 +30,7 @@
             <lightning-input-rich-text type="text" variant="standard" name="Event_Detail__c" onchange={handleChange} value={eventRecord.Event_Detail__c} label="Event Detail" placeholder="type here..."></lightning-input-rich-text>
         </div>
         <div class="slds-m-around_smal">
+            <lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={handleCancel}></lightning-button>
             <lightning-button variant="brand" label="Add Event" title="Add Event" onclick={handleClick}></lightning-button>
         </div>
     </lightning-card>

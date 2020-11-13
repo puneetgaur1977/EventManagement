@@ -25,6 +25,7 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
         Event_Detail__c : ''
 
     }
+    @track errors;
     handleChange(event){
         let value = event.target.value;
         let name = event.target.name;
@@ -56,11 +57,20 @@ export default class AddEvent extends NavigationMixin(LightningElement) {
                 }
             });
         }).catch((err) =>{
-            //alert('Err');
-            showNotification(ERROR_CAR_TYPE_TYPE,error.body.message,ERROR);
+            this.errors = JSON.stringify(err.messa);
+            showNotification(ERROR_CAR_TYPE_TYPE,this.errors,ERROR);
             console.log(err);
         });
 
+    }
+    handleCancel(){
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                actionName: "home",
+                objectApiName: "Event__c"
+            }
+        });
     }
 
 }
