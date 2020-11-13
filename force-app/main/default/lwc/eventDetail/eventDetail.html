@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 11-12-2020
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   11-12-2020   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Event Details" icon-name="standard:event">
+        <!-- <div class="slds-m-around_smal">
+            <lightning-record-form
+            record-id={recordId}
+            layout-type="Full"
+            columns="2"
+            mode="readonly"
+            object-api-name="Event__c"
+            >
+
+            </lightning-record-form>
+        </div> -->
+        <lightning-tabset variant="standard" active-tab-value="event">
+            <lightning-tab label="Event Details" value="event">
+                <lightning-record-form
+            record-id={recordId}
+            layout-type="Full"
+            columns="2"
+            mode="readonly"
+            object-api-name="Event__c"
+            >
+
+            </lightning-record-form>
+            </lightning-tab>
+            <lightning-tab label="Event Speakers" value="Speaker" onactive={handleSpeakerAcive}>
+                <template if:true={speakerList}>
+                    <lightning-datatable
+                        key-field="id"
+                        data={speakerList}
+                        show-row-number-column
+                        hide-checkbox-column
+                        columns={columnsList}>
+                    </lightning-datatable>
+                </template>
+                <template if:false={errors}>
+                    <template if:false={speakerList}>
+                        There are no speakers associated with the Event
+                    </template>
+                </template>
+            </lightning-tab>
+            <lightning-tab label="Event Location" value="Location" onactive={handleLocationAcive}>
+                Three Content !
+            </lightning-tab>
+            <lightning-tab label="Event Attendee" value="Attendee" onactive={handleAttendeeAcive}>
+                Three Content !
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+    
+</template>
