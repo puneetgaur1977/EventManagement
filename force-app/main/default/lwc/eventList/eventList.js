@@ -1,5 +1,6 @@
 import { LightningElement , wire , track} from 'lwc';
 import getUpcomingEvents from '@salesforce/apex/EventDetailsService.upcomingEvents';
+import Icon_Conditional_Formatting_png from '@salesforce/contentAssetUrl/Icon_Conditional_Formatting_png';
 const columns = [
     {
         label: "View",
@@ -36,7 +37,9 @@ const columns = [
 export default class EventList extends LightningElement {
     columnsList = columns;
     error;
+    startdatetime;
     @track result;
+    @track recordoDisplay;
     connectedCallback(){
         this.upcomingEvents();
     }
@@ -54,6 +57,7 @@ export default class EventList extends LightningElement {
                 }
             });
             this.result = data;
+            this.recordoDisplay = data;
             this.error = undefined;
         }).catch((err) =>{
             this.error = err;
@@ -79,5 +83,36 @@ export default class EventList extends LightningElement {
          this.result = undefined;
       }
     }*/
-
+    handleSearch(event){
+        let keyWord = event.detail.value;
+        let filteredEvent = this.result.filter((record, index,arrayobject) => {
+            return record.Name__c.toLowerCase().includes(keyWord.toLowerCase());
+        });
+        if(keyWord && keyWord.length >=2){
+            this.recordoDisplay = filteredEvent;
+        }
+        else{
+            this.recordoDisplay = this.result;
+        }
+    }
+    handleStartDate(event){
+        //Start_Date_Time__c
+        let valueDateTime = event.target.value;
+        let filteredEvent = this.result.filter((record, index,arrayobject) => {
+            return record.Start_Date_Time__c >= valueDateTime;
+        });
+        this.recordoDisplay = filteredEvent;
+    }
+    handleLocationSearch(event){
+        let keyWord = event.detail.value;
+        let filteredEvent = this.result.filter((record, index,arrayobject) => {
+            return record.Location.toLowerCase().includes(keyWord.toLowerCase());
+        });
+        if(keyWord && keyWord.length >=2){
+            this.recordoDisplay = filteredEvent;
+        }
+        else{
+            this.recordoDisplay = this.result;
+        }       
+    }
 }

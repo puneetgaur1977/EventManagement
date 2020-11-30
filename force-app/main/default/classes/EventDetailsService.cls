@@ -22,7 +22,8 @@ public static List<Event__c> upcomingEvents(){
                 Location__c,
                 Location__r.Name,
                 Event_Organizer__c, 
-                Event_Organizer__r.Name
+                Event_Organizer__r.Name,
+                Start_Date_Time__c
             FROM
                 Event__c
             WHERE

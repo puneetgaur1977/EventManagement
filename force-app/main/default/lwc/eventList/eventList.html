@@ -11,9 +11,16 @@
 <template>
     <lightning-card  variant="Narrow"  title="Upcoming Events" icon-name="standard:event">
         <div class="slds-m-around_small">
+            <c-lwc-search-component search-label="Event Name" onsearch={handleSearch} ></c-lwc-search-component>
+            &nbsp;
+            <lightning-input type="datetime" variant="standard" name="name" label="Start Date Time" value={startdatetime} onchange={handleStartDate}></lightning-input>
+            &nbsp;
+            <c-lwc-search-component search-label="Event Location" onsearch={handleLocationSearch} ></c-lwc-search-component>
+        </div>
+        <div class="slds-m-around_small">
             <lightning-datatable
                 key-field="id"
-                data={result}
+                data={recordoDisplay}
                 show-row-number-column
                 row-number-offset={rowOffset}
                 hide-checkbox-column
