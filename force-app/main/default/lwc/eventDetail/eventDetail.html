@@ -2,7 +2,7 @@
   @description       : 
   @author            : gaur.puneet@outlook.com
   @group             : 
-  @last modified on  : 11-29-2020
+  @last modified on  : 01-01-2021
   @last modified by  : gaur.puneet@outlook.com
   Modifications Log 
   Ver   Date         Author                    Modification
@@ -34,6 +34,9 @@
             </lightning-record-form>
             </lightning-tab>
             <lightning-tab label="Event Speakers" value="Speaker" onactive={handleSpeakerAcive}>
+                <!-- <p slot="actions"> -->
+                    <lightning-button variant="brand" label="New Speaker" title="New Speaker" onclick={createSpeaker}></lightning-button>
+                <!-- </p> -->
                 <template if:true={speakerList}>
                     <lightning-datatable
                         key-field="id"
@@ -65,6 +68,13 @@
                 </template>
             </lightning-tab>
             <lightning-tab label="Event Attendee" value="Attendee" onactive={handleAttendeeAcive}>
+                <!-- <p slot="actions"> -->
+                    <lightning-button 
+                    variant="brand" 
+                    label="New Attendee" 
+                    title="New Attendee" 
+                    onclick={createAttendee}></lightning-button>
+                <!-- </p> -->
                 <lightning-datatable
                     key-field="id"
                     data={eventAttendeeList}

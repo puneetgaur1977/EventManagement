@@ -1,4 +1,4 @@
-import { LightningElement , wire , track} from 'lwc';
+import { LightningElement , wire , track , api} from 'lwc';
 import getUpcomingEvents from '@salesforce/apex/EventDetailsService.upcomingEvents';
 import Icon_Conditional_Formatting_png from '@salesforce/contentAssetUrl/Icon_Conditional_Formatting_png';
 const columns = [
@@ -38,6 +38,7 @@ export default class EventList extends LightningElement {
     columnsList = columns;
     error;
     startdatetime;
+    @api recordId;
     @track result;
     @track recordoDisplay;
     connectedCallback(){

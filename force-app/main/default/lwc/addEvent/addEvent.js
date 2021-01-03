@@ -15,6 +15,7 @@ const ERROR = 'error';
 const SUCCESS_MESSAGE_TYPE= 'Record has been saved successfully';
 const SUCCESS = 'success';
 export default class AddEvent extends NavigationMixin(LightningElement) {
+    @api recordId;
     @api isModalOpen;
     @track eventRecord = {
         Name__c : '',

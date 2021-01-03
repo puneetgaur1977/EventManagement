@@ -1,0 +1,17 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 01-02-2021
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   01-02-2021   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <template if:true={videoLink}>
+        <lightning-card  variant="Narrow">
+            <iframe width="100%" height="100%" src={videoLink} allowfullscreen></iframe>
+        </lightning-card>
+    </template>
+</template>

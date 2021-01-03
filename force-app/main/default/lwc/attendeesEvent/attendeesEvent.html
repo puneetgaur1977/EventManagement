@@ -2,7 +2,7 @@
   @description       : 
   @author            : gaur.puneet@outlook.com
   @group             : 
-  @last modified on  : 11-30-2020
+  @last modified on  : 12-30-2020
   @last modified by  : gaur.puneet@outlook.com
   Modifications Log 
   Ver   Date         Author                    Modification
@@ -22,7 +22,13 @@
                     </lightning-datatable>
                 </lightning-accordion-section>
                 <lightning-accordion-section name="Past Events" label="Past Events">
-                    
+                    <lightning-datatable
+                        key-field="id"
+                        data={pastevents}
+                        show-row-number-column
+                        hide-checkbox-column
+                        columns={columnList}>
+                    </lightning-datatable>
                 </lightning-accordion-section>
             </lightning-accordion>
         </div>

@@ -6,8 +6,8 @@
   @last modified by  : gaur.puneet@outlook.com
   Modifications Log 
   Ver   Date         Author                    Modification
-  1.0   11-12-2020   gaur.puneet@outlook.com   Initial Version
+  1.0   01-02-2021   gaur.puneet@outlook.com   Initial Version
 -->
 <aura:component implements="lightning:actionOverride, flexipage:availableForAllPageTypes, flexipage:availableForRecordHome, forceCommunity:availableForAllPageTypes ">
-    <c:addEvent isModalOpen="true"></c:addEvent>
+    <c:eventDetail isModalOpen="true"></c:eventDetail>
 </aura:component>	
