@@ -32,24 +32,11 @@ public class TestUtility {
         return accList;
     }
     public static Contact prepareContact(String accountId, String firstName, String lastName, String emailAdd){
-        
         return new Contact(
             firstName = firstName,
             AccountId = accountId,
             Email = emailAdd,
             LastName = lastName
         );
-    }
-    public static List<Contact> prepareContact(String accountId, String firstName, String lastName, String emailAdd, Integer recordCount){
-        List<Contact> contactList = new List<Contact>();
-        for(Integer recordCount = 0; recordCount<)recordCount; recordCount++){
-            contactList.add(new Contact(
-            firstName = firstName +' '+ String.valueOf(recordCount),
-            AccountId = accountId,
-            Email = emailAdd,
-            LastName = lastName+' '+ String.valueOf(recordCount)
-            ));
-        }
-        return contactList;
     }
 }

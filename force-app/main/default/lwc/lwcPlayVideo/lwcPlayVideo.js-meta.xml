@@ -4,20 +4,10 @@
     <isExposed>true</isExposed>
     <targets>
         <target>lightning__HomePage</target>
-        <!--<target>lightning__Tab</target>-->
-        <!--<target>lightning__Inbox</target>-->
-        <!--<target>lightning__UtilityBar</target>-->
-        <!--<target>lightning__FlowScreen</target>-->
-        <!--<target>lightningSnapin__ChatMessage</target>-->
-        <!--<target>lightningSnapin__Minimized</target>-->
-        <!--<target>lightningSnapin__PreChat</target>-->
-        <!--<target>lightningSnapin__ChatHeader</target>-->
-        <!--<target>lightningCommunity__Page</target>-->
-        <!--<target>lightningCommunity__Default</target>-->
-    </targets>
+        <!--<target>lightning__Tab</target>--><!--<target>lightning__Inbox</target>--><!--<target>lightning__UtilityBar</target>--><!--<target>lightning__FlowScreen</target>--><!--<target>lightningSnapin__ChatMessage</target>--><!--<target>lightningSnapin__Minimized</target>--><!--<target>lightningSnapin__PreChat</target>--><!--<target>lightningSnapin__ChatHeader</target>--><!--<target>lightningCommunity__Page</target>--><!--<target>lightningCommunity__Default</target>--></targets>
     <targetConfigs>
         <targetConfig targets="lightning__HomePage">
-            <property name="videoLink" type="String" label="Video Link" />
+            <property name="videoLink" type="String" label="Video Link"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

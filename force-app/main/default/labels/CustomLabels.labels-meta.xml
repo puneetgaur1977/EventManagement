@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>DISPLAY_VIDEO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DISPLAY VIDEO</shortDescription>
+        <value>DISPLAY_VIDEO</value>
+    </labels>
+    <labels>
         <fullName>Email_Content</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -15,10 +22,17 @@ Thanks,
 {OrganizerName}</value>
     </labels>
     <labels>
-        <fullName>SmartyStreet</fullName>
+        <fullName>UPLOAD_VIDEO</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Smarty Street Base URL Endpoint</shortDescription>
-        <value>https://smartystreets.com/products/apis/us-street-api?auth-id=f4eb5c5f-6f5b-69e6-aad3-3e18a70be9f7auth-token=XPrOQEAqH7xGxtzuHrtX</value>
+        <shortDescription>UPLOAD VIDEO</shortDescription>
+        <value>UPLOAD_VIDEO</value>
+    </labels>
+    <labels>
+        <fullName>nextIntervalTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>nextIntervalTime</shortDescription>
+        <value>2</value>
     </labels>
 </CustomLabels>

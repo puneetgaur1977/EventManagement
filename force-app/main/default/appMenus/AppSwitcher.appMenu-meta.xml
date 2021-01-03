@@ -112,4 +112,16 @@
         <name>MAX_FIT</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>DEVHUB_ocxnyzgszdcltddfbub1</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Change_Data_Capture</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>MaxFixt</name>
+        <type>Network</type>
+    </appMenuItems>
 </AppMenu>

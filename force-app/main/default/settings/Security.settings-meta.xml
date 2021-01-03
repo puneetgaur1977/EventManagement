@@ -65,6 +65,4 @@
         <enableSamlLogin>false</enableSamlLogin>
         <isLoginWithSalesforceCredentialsDisabled>false</isLoginWithSalesforceCredentialsDisabled>
     </singleSignOnSettings>
-    <turnTLSv11Off xsi:nil="true"/>
-    <turnTLSv11OffSites xsi:nil="true"/>
 </SecuritySettings>

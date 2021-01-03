@@ -1,14 +1,13 @@
 /**
  * @description       : 
- * @author            : gaur.puneet@outlook.com
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
  * @last modified on  : 10-11-2020
- * @last modified by  : gaur.puneet@outlook.com
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
- * Ver   Date         Author                    Modification
- * 1.0   10-11-2020   gaur.puneet@outlook.com   Initial Version
+ * Ver   Date         Author                               Modification
+ * 1.0   10-11-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
-
 @isTest
 public class TestAttendeesFactory {
     private
@@ -72,4 +71,6 @@ public class TestAttendeesFactory {
         insert attendeeRecord;
         return attendeeRecord;
     }
+
+
 }
