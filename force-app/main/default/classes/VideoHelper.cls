@@ -55,4 +55,40 @@ public with sharing class VideoHelper {
         }
         return null;
     }
+    @AuraEnabled
+    public static VideoHelperWrapper uploadVideoToS3Bucket(String fileName, String fileType , String fileContent){
+        VideoHelperWrapper videoHelperResponse = new VideoHelperWrapper();
+        HttpRequest reqFileUploadInS3Bucket = new HttpRequest();
+        Blob base64Content = EncodingUtil.base64Decode(EncodingUtil.urlDecode(fileContent,'UTF-8'));
+        String attachmentBody = fileContent;
+        String formattedDateString = DateTime.now().formatGMT('EEE, dd MM yyyy HH:mm:ss z');
+        String dateString = DateTime.now().format('ddMMYYYYHHmmss');
+        fileName = dateString+'_'+fileName;
+        String endPoint='https://salesforcevideo.s3.us-east-2.amazonaws.com/'+fileName;
+        try {
+            reqFileUploadInS3Bucket.setEndpoint('callout:S3_Bucket_Access'+fileName);
+            reqFileUploadInS3Bucket.setMethod('PUT');
+            reqFileUploadInS3Bucket.setHeader('Access-Control-Allow-Origin', '*');
+            reqFileUploadInS3Bucket.setHeader('Content-Length', String.valueOf(attachmentBody.length()));
+            reqFileUploadInS3Bucket.setHeader('Content-Encoding', 'UTF-8');
+            reqFileUploadInS3Bucket.setHeader('Content-type', fileType);
+            reqFileUploadInS3Bucket.setHeader('Connection', 'keep-alive');
+            reqFileUploadInS3Bucket.setHeader('Date', formattedDateString); 
+            reqFileUploadInS3Bucket.setHeader('ACL', 'public-read');
+            //store file as blob       
+            reqFileUploadInS3Bucket.setBodyAsBlob(base64Content);                       
+            Http http = new Http();
+            HTTPResponse resFileUploadInS3Bucket = http.send(reqFileUploadInS3Bucket);                
+            System.debug(resFileUploadInS3Bucket.getBody());
+            if(resFileUploadInS3Bucket.getStatusCode() == 200){
+                videoHelperResponse.fileName = fileName;
+                videoHelperResponse.fileURL = endPoint;
+                videoHelperResponse.isVideoDisplay = true;
+            }
+            return videoHelperResponse;
+        } catch (Exception e) {
+            //throw new AuraHandledException(e.getMessage());
+            return null;
+        }
+    }
 }
