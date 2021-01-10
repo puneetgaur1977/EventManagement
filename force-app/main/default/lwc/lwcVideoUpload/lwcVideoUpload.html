@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 01-03-2021
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   01-03-2021   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <lightning-card>
+        <div class="slds-clearfix slds-grid slds-grid_horizontal">
+            <div class="slds-col slds-p-horizontal_medium slds-float_left">
+               <lightning-button label="Hide" slot="actions" variant="Brand" class="slds-m-left_x-small"></lightning-button>
+            </div>
+            
+            <div class="slds-col slds-p-horizontal_medium slds-float_right" style="padding-top:0;">
+                <lightning-input label="" name="file to uploder" onchange={handleSelectedFiles} 
+                    type="file"></lightning-input>
+            </div>
+        </div> 
+    </lightning-card>
+</template>

@@ -14,7 +14,7 @@ public with sharing class VideoHelper {
     @Group - Gaur
     @Desciption - Read Permission Set.
     */
-    @AuraEnabled
+    @AuraEnabled(Cacheable=true)
     public static Boolean checkUserHasPermissionToWatchVideo(){
         return FeatureManagement.checkPermission(System.label.DISPLAY_VIDEO);
     }
@@ -23,7 +23,7 @@ public with sharing class VideoHelper {
     @Group - Gaur
     @Desciption - Write Permission Set.
     */
-    @AuraEnabled
+    @AuraEnabled(Cacheable=true)
     public static Boolean checkUserHasPermissionToUploadVideo(){
         return checkUserHasPermissionToWatchVideo() && FeatureManagement.checkPermission(System.label.UPLOAD_VIDEO);
     }
@@ -57,6 +57,9 @@ public with sharing class VideoHelper {
     }
     @AuraEnabled
     public static VideoHelperWrapper uploadVideoToS3Bucket(String fileName, String fileType , String fileContent){
+        System.debug('fileName='+fileName);
+        System.debug('fileType='+fileType);
+        System.debug('fileContent='+fileContent);
         VideoHelperWrapper videoHelperResponse = new VideoHelperWrapper();
         HttpRequest reqFileUploadInS3Bucket = new HttpRequest();
         Blob base64Content = EncodingUtil.base64Decode(EncodingUtil.urlDecode(fileContent,'UTF-8'));
@@ -66,12 +69,12 @@ public with sharing class VideoHelper {
         fileName = dateString+'_'+fileName;
         String endPoint='https://salesforcevideo.s3.us-east-2.amazonaws.com/'+fileName;
         try {
-            reqFileUploadInS3Bucket.setEndpoint('callout:S3_Bucket_Access'+fileName);
+            reqFileUploadInS3Bucket.setEndpoint('callout:S3_Bucket_Access/'+fileName);
             reqFileUploadInS3Bucket.setMethod('PUT');
             reqFileUploadInS3Bucket.setHeader('Access-Control-Allow-Origin', '*');
             reqFileUploadInS3Bucket.setHeader('Content-Length', String.valueOf(attachmentBody.length()));
             reqFileUploadInS3Bucket.setHeader('Content-Encoding', 'UTF-8');
-            reqFileUploadInS3Bucket.setHeader('Content-type', fileType);
+            reqFileUploadInS3Bucket.setHeader('Content-type', 'application/x-www-form-urlencoded');
             reqFileUploadInS3Bucket.setHeader('Connection', 'keep-alive');
             reqFileUploadInS3Bucket.setHeader('Date', formattedDateString); 
             reqFileUploadInS3Bucket.setHeader('ACL', 'public-read');
@@ -87,6 +90,7 @@ public with sharing class VideoHelper {
             }
             return videoHelperResponse;
         } catch (Exception e) {
+            System.debug('Error Message='+e.getMessage());
             //throw new AuraHandledException(e.getMessage());
             return null;
         }
