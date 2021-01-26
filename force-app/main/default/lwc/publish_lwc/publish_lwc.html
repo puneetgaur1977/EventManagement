@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 01-25-2021
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   01-25-2021   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <lightning-card title="Account List LWC">
+        <p class="slds-p-horizontal_small">
+            <template for:each={accountList} for:item="account">
+                <div key={account.Id}> 
+                    <a href="#"  data-value={account.Id} onclick={handleClick}>{account.Name}</a>
+                </div>
+            </template>
+        </p>
+    </lightning-card>
+</template>

@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : gaur.puneet@outlook.com
+  @group             : 
+  @last modified on  : 01-25-2021
+  @last modified by  : gaur.puneet@outlook.com
+  Modifications Log 
+  Ver   Date         Author                    Modification
+  1.0   01-25-2021   gaur.puneet@outlook.com   Initial Version
+-->
+<template>
+    <lightning-card title="LWC Subscriber">
+        <p class="slds-p-horizontal_small">
+                <lightning-record-form
+                    record-id={accountId}
+                    object-api-name={objectApiName}
+                    fields={fields}
+                    columns="2"
+                    mode="view">
+            </lightning-record-form>
+        </p>
+    </lightning-card>
+</template>
